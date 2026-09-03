@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <KTK_BookMod_ReadingBounsChange>Reading Bonus and Bookshelf Patched</KTK_BookMod_ReadingBounsChange>
+
+  <KTK_BookMod_changeReadingBouns>是否改变阅读加成逻辑</KTK_BookMod_changeReadingBouns>
+
+  <KTK_BookMod_bounsAwful>极差书籍</KTK_BookMod_bounsAwful>
+
+  <KTK_BookMod_bounsPoor>较差书籍</KTK_BookMod_bounsPoor>
+
+  <KTK_BookMod_bounsNormal>一般书籍</KTK_BookMod_bounsNormal>
+
+  <KTK_BookMod_bounsGood>较佳书籍</KTK_BookMod_bounsGood>
+
+  <KTK_BookMod_bounsExcellent>极佳书籍</KTK_BookMod_bounsExcellent>
+
+  <KTK_BookMod_bounsMasterwork>大师书籍</KTK_BookMod_bounsMasterwork>
+
+  <KTK_BookMod_bounsLegendary>传奇书籍</KTK_BookMod_bounsLegendary>
+
+  <KTK_BookMod_maxBookInCell>单格最大书籍容量</KTK_BookMod_maxBookInCell>
+
+  <KTK_BookMod_ResetToDefault>重置</KTK_BookMod_ResetToDefault>
+
+</LanguageData>

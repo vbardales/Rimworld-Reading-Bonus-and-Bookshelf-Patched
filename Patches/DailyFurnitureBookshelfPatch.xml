@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Daily furniture 塔林家具</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!-- 设置父类为 BookcaseBase-->
+                <li Class="PatchOperationAttributeSet">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]</xpath>
+                    <attribute>ParentName</attribute>
+                    <value>BookcaseBase</value>
+                </li>
+
+                <!-- drawerType -->
+                <li Class="PatchOperationInsert">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]/graphicData</xpath>
+                    <value>
+                        <drawerType>MapMeshAndRealTime</drawerType>
+                    </value>
+                </li>
+
+                <!-- 移除thingClass -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]/thingClass</xpath>
+                </li>
+
+
+                <!-- 移除category -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]/category</xpath>
+                </li>
+
+                <!-- 移除minifiedDef -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]/minifiedDef</xpath>
+                </li>
+
+                <!-- 移除thingCategories -->
+                <li Class="PatchOperationRemove">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]/thingCategories</xpath>
+                </li>
+
+                <!-- 添加储存容量maxItemsInCell -->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="ADH_book_A_A_FURNITURE" or
+                        defName="ADH_book_A_B_FURNITURE"]</xpath>
+                    <value>
+                        <building>
+                            <!-- <maxItemsInCell>30</maxItemsInCell> -->
+
+                            <fixedStorageSettings>
+                                <filter>
+                                    <categories Inherit="False">
+                                        <li>Books</li>
+                                    </categories>
+                                </filter>
+                            </fixedStorageSettings>
+                            <defaultStorageSettings>
+                                <priority>Important</priority>
+                                <filter>
+                                    <categories>
+                                        <li>Books</li>
+                                    </categories>
+                                </filter>
+                            </defaultStorageSettings>
+                        </building>
+                    </value>
+                </li>
+            </operations>
+
+        </match>
+    </Operation>
+
+
+</Patch>

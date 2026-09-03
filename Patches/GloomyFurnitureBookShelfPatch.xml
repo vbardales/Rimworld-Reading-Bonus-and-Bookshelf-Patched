@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>GloomyFurniture</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>Gloomy Furniture Fix</li>
+            </mods>
+            <nomatch Class="PatchOperationSequence">
+                <operations>
+                    <!-- 设置父类为 BookcaseBase-->
+                    <li Class="PatchOperationAttributeSet">
+                        <xpath>/Defs/ThingDef[defName="GL_Bookshelf"]</xpath>
+                        <attribute>ParentName</attribute>
+                        <value>BookcaseBase</value>
+                    </li>
+    
+                    <!-- drawerType -->
+                    <li Class="PatchOperationInsert">
+                        <xpath>/Defs/ThingDef[defName="GL_Bookshelf"]/graphicData</xpath>
+                        <value>
+                            <drawerType>MapMeshAndRealTime</drawerType>
+                        </value>
+                    </li>
+    
+                    <!-- 移除thingClass -->
+                    <li Class="PatchOperationRemove">
+                        <xpath>/Defs/ThingDef[defName="GL_Bookshelf"]/thingClass</xpath>
+                    </li>
+    
+                    <!-- 移除minifiedDef -->
+                    <li Class="PatchOperationRemove">
+                        <xpath>/Defs/ThingDef[defName="GL_Bookshelf"]/minifiedDef</xpath>
+                    </li>
+    
+                    <!-- 移除thingCategories -->
+                    <li Class="PatchOperationRemove">
+                        <xpath>/Defs/ThingDef[defName="GL_Bookshelf"]/thingCategories</xpath>
+                    </li>
+    
+                    <!-- 添加储存容量maxItemsInCell -->
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="GL_Bookshelf"]</xpath>
+                        <value>
+                            <building>
+                                <!-- <maxItemsInCell>30</maxItemsInCell> -->
+    
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <categories Inherit="False">
+                                            <li>Books</li>
+                                        </categories>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                        <categories>
+                                            <li>Books</li>
+                                        </categories>
+                                    </filter>
+                                </defaultStorageSettings>
+                            </building>
+                        </value>
+                    </li>
+                </operations>
+    
+            </nomatch>
+        </match>
+
+    </Operation>
+
+
+</Patch>

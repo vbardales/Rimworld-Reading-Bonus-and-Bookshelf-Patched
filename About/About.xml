@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Reading Bonus and Bookshelf Patched</name>
+  <author>Kutake - 1.6 update by nelim</author>
+  <packageId>nelim.readingbonusandbookshelfpatched</packageId>
+  <url>https://github.com/vbardales/Rimworld-Reading-Bonus-and-Bookshelf-Patched</url>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Update of Kutake's 阅读加成与书架patch (Reading Bonus and Bookshelf Patch) to RimWorld 1.6.
+
+I am not the author of this mod. The idea, the design and the original code are entirely Kutake's - all I did was the work needed to make it run on 1.6. Credit goes to them; mistakes in the update are mine. If the original author comes back to it, or asks me to take this down, I will.
+
+Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=3463926737
+
+What it does
+
+Vanilla only counts one book per cell towards a room's reading bonus, so a bookcase holding four books is worth no more than a shelf holding one. This mod replaces the ReadingBonus room-stat worker so that every book in the room counts, which finally makes high-capacity bookcases worth building.
+
+In the mod settings you can set how much each quality tier is worth, from awful to legendary, and how many books a single cell may contribute. The original behaviour is one toggle away, and there is a reset button.
+
+Supported shelves: vanilla bookcases, plus those from Daily Furniture and Gloomy Furniture when either is installed.
+
+What changed
+
+The 1.6 update itself needed no code changes - every API this mod touches still exists. What was checked instead is that its patches still land where they used to:
+
+- The RoomStatDef "ReadingBonus" still exists and still carries a workerClass, so the replace patch applies.
+- The vanilla bookcase patch targets the abstract BookcaseBase, so both Bookcase and BookcaseSmall still inherit the replacement class.
+- Building_Bookcase.DrawAt was compared against 1.6: the book-drawing code this mod re-implements is still identical to vanilla's, so shelves draw correctly.
+
+One bug was then fixed, which is why this is "Patched" rather than a plain update.
+
+The "max books per cell" setting never applied on its own. The mod looked for its bookcases with d.HasComp(typeof(Building_KTK_BookCase)), but HasComp searches a def's components while Building_KTK_BookCase is a thingClass - so the test was always false, the list was always empty, and the routine that applies the setting did nothing. The author had worked around it by writing the value into the def every time a shelf was built, which meant lowering the setting mid-game changed nothing until you placed a new shelf, and left the def altered until you restarted the game.
+
+The lookup now matches on thingClass, and the setting is applied once at startup and again whenever it changes. The per-spawn write is gone.
+
+Two labels were also touched, both in Languages and neither in code. The mod settings list showed "Reading Bonus Logic Modified" - a section title in the original, not a mod name, so the mod was hard to find under its own name; that key now carries the mod name. A French translation was added, using the game's own vocabulary for the reading bonus, for map cells and for the seven quality tiers.
+
+Safe to add to an ongoing save. Removing it mid-save reverts the reading bonus to vanilla and leaves bookcases as they were.</description>
+  <modDependencies>
+    <li>
+      <packageId>Ludeon.RimWorld</packageId>
+      <displayName>Core</displayName>
+      <steamWorkshopUrl isNull="True" />
+      <downloadUrl isNull="True" />
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li IfModActive="brrainz.harmony">brrainz.harmony</li>
+    <li IfModActive="ZeroWhite.Dailyfurniture">ZeroWhite.Dailyfurniture</li>
+    <li IfModActive="jxw.dailyfurniturefix">jxw.dailyfurniturefix</li>
+    <li IfModActive="solaris.furniturebase">solaris.furniturebase</li>
+    <li IfModActive="gloomy.furniture.fix">gloomy.furniture.fix</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>Kutake.ReadingBoundsAndBookshelfPatch</li>
+  </incompatibleWith>
+</ModMetaData>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/RoomStatDef[defName="ReadingBonus"]/workerClass</xpath>
+        <value>
+            <workerClass>KTK_BookMod.KTK_RoomStatWorker_ReadingBonus</workerClass>
+        </value>
+    </Operation>
+
+</Patch>

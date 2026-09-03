@@ -1,0 +1,25 @@
+﻿<LanguageData>
+
+  <KTK_BookMod_ReadingBounsChange>Reading Bonus and Bookshelf Patched</KTK_BookMod_ReadingBounsChange>
+
+  <KTK_BookMod_changeReadingBouns>Change reading bonus calculation</KTK_BookMod_changeReadingBouns>
+
+  <KTK_BookMod_bounsAwful>Awful-quality Books</KTK_BookMod_bounsAwful>
+
+  <KTK_BookMod_bounsPoor>Poor-quality Books</KTK_BookMod_bounsPoor>
+
+  <KTK_BookMod_bounsNormal>Normal-quality Books</KTK_BookMod_bounsNormal>
+
+  <KTK_BookMod_bounsGood>Good-quality Books</KTK_BookMod_bounsGood>
+
+  <KTK_BookMod_bounsExcellent>Excellent-quality Books</KTK_BookMod_bounsExcellent>
+
+  <KTK_BookMod_bounsMasterwork>Masterwork Books</KTK_BookMod_bounsMasterwork>
+
+  <KTK_BookMod_bounsLegendary>Legendary Books</KTK_BookMod_bounsLegendary>
+
+  <KTK_BookMod_maxBookInCell>Max books per cell</KTK_BookMod_maxBookInCell>
+  
+  <KTK_BookMod_ResetToDefault>Reset to Default</KTK_BookMod_ResetToDefault>
+
+</LanguageData>
