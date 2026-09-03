@@ -4,9 +4,7 @@ Format inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This file serves the repository and the writing of Steam patch notes; RimWorld does not display
 it in game.
 
-## [1.0.0] — unreleased
-
-On release: create the `v1.0.0` tag and the matching GitHub release.
+## [1.0.0] — 2026-09-03
 
 First release of the 1.6 update. The mod's own logic is unchanged from Kutake's 1.5 version,
 apart from the one fix below.
